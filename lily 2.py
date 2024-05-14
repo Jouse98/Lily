@@ -52,6 +52,16 @@ def process_assignment(line):
     
     variables[variable_name] = evaluated_value
 
+    # Check for compound assignment operators and perform the operation accordingly
+    if '+=' in line:
+        variables[variable_name] += evaluated_value
+    elif '-=' in line:
+        variables[variable_name] -= evaluated_value
+    elif '*=' in line:
+        variables[variable_name] *= evaluated_value
+    elif '/=' in line:
+        variables[variable_name] /= evaluated_value
+
 writeBTN = tk.Button(window, text="Write", command=findprint)
 writeBTN.pack()
 output.pack()
